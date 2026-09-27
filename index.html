@@ -1,0 +1,1464 @@
+```html
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#101814">
+
+<title>Hotel + Restaurant Jägerhof | Mutterstadt</title>
+
+<style>
+:root{
+    --dark:#101814;
+    --dark2:#17231d;
+    --green:#294d3a;
+    --green2:#3d6b50;
+    --gold:#c6a15b;
+    --cream:#f6f2e9;
+    --white:#ffffff;
+    --text:#202522;
+    --muted:#69716b;
+    --shadow:0 15px 40px rgba(0,0,0,.10);
+    --radius:22px;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+html{
+    scroll-padding-top:135px;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:var(--cream);
+    color:var(--text);
+    line-height:1.6;
+}
+
+img{
+    max-width:100%;
+    display:block;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+.container{
+    width:min(1150px, calc(100% - 36px));
+    margin:auto;
+}
+
+/* =========================
+   TOP NAVIGATION
+========================= */
+
+.topbar{
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    z-index:1000;
+    background:rgba(16,24,20,.96);
+    backdrop-filter:blur(15px);
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.nav-main{
+    height:72px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.logo{
+    color:white;
+    font-size:19px;
+    font-weight:800;
+    letter-spacing:.3px;
+    white-space:nowrap;
+}
+
+.logo span{
+    color:var(--gold);
+    display:block;
+    font-size:11px;
+    font-weight:500;
+    letter-spacing:2px;
+    text-transform:uppercase;
+}
+
+.nav-actions{
+    display:flex;
+    gap:9px;
+}
+
+.nav-button{
+    border:1px solid rgba(255,255,255,.15);
+    color:white;
+    padding:9px 14px;
+    border-radius:100px;
+    font-size:13px;
+    font-weight:700;
+    transition:.2s;
+}
+
+.nav-button:hover{
+    background:white;
+    color:var(--dark);
+}
+
+/* category navigation */
+
+.category-bar{
+    background:rgba(16,24,20,.98);
+    overflow-x:auto;
+    scrollbar-width:none;
+    border-top:1px solid rgba(255,255,255,.05);
+}
+
+.category-bar::-webkit-scrollbar{
+    display:none;
+}
+
+.categories{
+    display:flex;
+    width:max-content;
+    min-width:100%;
+    justify-content:center;
+}
+
+.categories a{
+    color:#dfe6e1;
+    padding:13px 17px;
+    font-size:13px;
+    font-weight:700;
+    white-space:nowrap;
+    border-bottom:2px solid transparent;
+    transition:.2s;
+}
+
+.categories a:hover{
+    color:white;
+    border-color:var(--gold);
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    min-height:760px;
+    padding-top:72px;
+    display:flex;
+    align-items:center;
+    position:relative;
+    background:
+        linear-gradient(90deg,
+        rgba(8,14,11,.86) 0%,
+        rgba(8,14,11,.65) 48%,
+        rgba(8,14,11,.25) 100%),
+        url("https://www.jaegerhof-mutterstadt.de/s/img/emotionheader22459514.jpg?1461409825.910px.557px=")
+        center/cover no-repeat;
+}
+
+.hero-content{
+    max-width:720px;
+    color:white;
+}
+
+.badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:8px 13px;
+    border-radius:100px;
+    background:rgba(255,255,255,.12);
+    border:1px solid rgba(255,255,255,.18);
+    backdrop-filter:blur(10px);
+    font-size:12px;
+    font-weight:700;
+    margin-bottom:22px;
+}
+
+.badge-dot{
+    width:8px;
+    height:8px;
+    background:#72b88c;
+    border-radius:50%;
+}
+
+.hero h1{
+    font-size:clamp(42px, 7vw, 78px);
+    line-height:.98;
+    margin-bottom:24px;
+    letter-spacing:-2px;
+}
+
+.hero h1 span{
+    color:#dfbf78;
+}
+
+.hero p{
+    max-width:610px;
+    font-size:18px;
+    color:#e9eee9;
+    margin-bottom:32px;
+}
+
+.hero-buttons{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+}
+
+.btn{
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+    gap:9px;
+    padding:14px 20px;
+    border-radius:13px;
+    font-weight:800;
+    font-size:14px;
+    border:1px solid transparent;
+    transition:.2s;
+}
+
+.btn-primary{
+    background:var(--gold);
+    color:#17140d;
+}
+
+.btn-primary:hover{
+    transform:translateY(-2px);
+    filter:brightness(1.06);
+}
+
+.btn-light{
+    color:white;
+    border-color:rgba(255,255,255,.3);
+    background:rgba(255,255,255,.08);
+}
+
+.btn-light:hover{
+    background:white;
+    color:var(--dark);
+}
+
+/* =========================
+   GENERAL
+========================= */
+
+section{
+    padding:90px 0;
+}
+
+.section-title{
+    max-width:720px;
+    margin-bottom:45px;
+}
+
+.eyebrow{
+    color:var(--green2);
+    text-transform:uppercase;
+    font-size:12px;
+    font-weight:900;
+    letter-spacing:2px;
+    margin-bottom:10px;
+}
+
+.section-title h2{
+    font-size:clamp(32px,5vw,52px);
+    line-height:1.05;
+    letter-spacing:-1.5px;
+    margin-bottom:14px;
+}
+
+.section-title p{
+    color:var(--muted);
+}
+
+/* =========================
+   QUICK INFO
+========================= */
+
+.quick{
+    margin-top:-55px;
+    position:relative;
+    z-index:5;
+}
+
+.quick-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:14px;
+}
+
+.quick-card{
+    background:white;
+    padding:23px;
+    border-radius:18px;
+    box-shadow:var(--shadow);
+}
+
+.quick-icon{
+    font-size:25px;
+    margin-bottom:10px;
+}
+
+.quick-card strong{
+    display:block;
+    font-size:17px;
+}
+
+.quick-card small{
+    color:var(--muted);
+}
+
+/* =========================
+   RESTAURANT
+========================= */
+
+.restaurant{
+    background:white;
+}
+
+.features{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.feature{
+    background:var(--cream);
+    border-radius:var(--radius);
+    padding:30px;
+    border:1px solid #ebe5d9;
+}
+
+.feature-icon{
+    font-size:31px;
+    margin-bottom:15px;
+}
+
+.feature h3{
+    margin-bottom:9px;
+    font-size:20px;
+}
+
+.feature p{
+    color:var(--muted);
+    font-size:14px;
+}
+
+/* =========================
+   MENU
+========================= */
+
+.menu-section{
+    background:var(--dark);
+    color:white;
+}
+
+.menu-section .section-title p{
+    color:#b9c2bc;
+}
+
+.menu-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+}
+
+.menu-card{
+    border:1px solid rgba(255,255,255,.1);
+    background:rgba(255,255,255,.05);
+    padding:30px;
+    border-radius:20px;
+}
+
+.menu-card h3{
+    color:#e1c47e;
+    margin-bottom:10px;
+}
+
+.menu-card p{
+    color:#c4ccc6;
+    font-size:14px;
+}
+
+/* =========================
+   HOTEL
+========================= */
+
+.hotel-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
+    align-items:stretch;
+}
+
+.hotel-card{
+    background:white;
+    border-radius:var(--radius);
+    padding:35px;
+    box-shadow:var(--shadow);
+}
+
+.hotel-card h3{
+    font-size:25px;
+    margin-bottom:15px;
+}
+
+.hotel-card p{
+    color:var(--muted);
+}
+
+.amenities{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+    margin-top:25px;
+}
+
+.amenity{
+    background:#f5f3ed;
+    border-radius:12px;
+    padding:12px;
+    font-size:13px;
+}
+
+/* =========================
+   NUMBERS
+========================= */
+
+.numbers{
+    background:#e8e3d7;
+}
+
+.number-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+    text-align:center;
+}
+
+.number strong{
+    display:block;
+    font-size:40px;
+    color:var(--green);
+    line-height:1;
+    margin-bottom:7px;
+}
+
+.number span{
+    color:var(--muted);
+    font-size:13px;
+}
+
+/* =========================
+   OPENING HOURS
+========================= */
+
+.hours-section{
+    background:white;
+}
+
+.hours-box{
+    max-width:850px;
+    margin:auto;
+    background:var(--dark);
+    color:white;
+    border-radius:28px;
+    padding:40px;
+}
+
+.hours-row{
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+    padding:17px 0;
+    border-bottom:1px solid rgba(255,255,255,.1);
+}
+
+.hours-row:last-child{
+    border-bottom:0;
+}
+
+.hours-row span:first-child{
+    font-weight:700;
+}
+
+.hours-row span:last-child{
+    color:#d9c078;
+    text-align:right;
+}
+
+/* =========================
+   LOCATION
+========================= */
+
+.location{
+    background:var(--cream);
+}
+
+.location-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
+}
+
+.location-card{
+    background:white;
+    border-radius:var(--radius);
+    padding:32px;
+    box-shadow:var(--shadow);
+}
+
+.distance{
+    display:flex;
+    justify-content:space-between;
+    padding:11px 0;
+    border-bottom:1px solid #ece9e2;
+    font-size:14px;
+}
+
+.distance:last-child{
+    border:0;
+}
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact{
+    background:var(--green);
+    color:white;
+}
+
+.contact-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
+}
+
+.contact-card{
+    border:1px solid rgba(255,255,255,.12);
+    background:rgba(255,255,255,.07);
+    border-radius:22px;
+    padding:32px;
+}
+
+.contact-card h3{
+    margin-bottom:18px;
+}
+
+.contact-line{
+    display:flex;
+    gap:13px;
+    margin:14px 0;
+    color:#e3eae5;
+}
+
+.contact-buttons{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:22px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    background:#0b100d;
+    color:#89928b;
+    text-align:center;
+    padding:35px 20px;
+    font-size:12px;
+}
+
+footer strong{
+    color:white;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:850px){
+
+    html{
+        scroll-padding-top:120px;
+    }
+
+    .nav-main{
+        height:62px;
+    }
+
+    .logo{
+        font-size:15px;
+    }
+
+    .logo span{
+        font-size:9px;
+    }
+
+    .nav-button{
+        padding:8px 10px;
+        font-size:11px;
+    }
+
+    .nav-button.map{
+        display:none;
+    }
+
+    .categories{
+        justify-content:flex-start;
+    }
+
+    .categories a{
+        padding:11px 14px;
+        font-size:12px;
+    }
+
+    .hero{
+        min-height:690px;
+        padding-top:62px;
+        background-position:60% center;
+    }
+
+    .hero h1{
+        font-size:48px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    .hero-buttons{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+    }
+
+    .btn{
+        width:100%;
+        padding:13px 10px;
+        font-size:13px;
+    }
+
+    section{
+        padding:65px 0;
+    }
+
+    .quick{
+        margin-top:-30px;
+    }
+
+    .quick-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .quick-card{
+        padding:18px;
+    }
+
+    .features,
+    .menu-grid,
+    .hotel-grid,
+    .location-grid,
+    .contact-grid{
+        grid-template-columns:1fr;
+    }
+
+    .number-grid{
+        grid-template-columns:1fr 1fr;
+        gap:35px 15px;
+    }
+
+    .amenities{
+        grid-template-columns:1fr;
+    }
+
+    .hours-box{
+        padding:25px 20px;
+        border-radius:20px;
+    }
+
+    .hours-row{
+        font-size:14px;
+    }
+
+    .section-title{
+        margin-bottom:30px;
+    }
+}
+
+/* =========================
+   SMALL PHONES
+========================= */
+
+@media(max-width:450px){
+
+    .container{
+        width:min(100% - 24px, 1150px);
+    }
+
+    .nav-actions .nav-button:first-child{
+        display:none;
+    }
+
+    .hero{
+        min-height:650px;
+    }
+
+    .hero h1{
+        font-size:41px;
+    }
+
+    .hero p{
+        font-size:15px;
+    }
+
+    .hero-buttons{
+        grid-template-columns:1fr;
+    }
+
+    .quick-grid{
+        gap:10px;
+    }
+
+    .quick-card{
+        padding:15px;
+    }
+
+    .quick-card strong{
+        font-size:15px;
+    }
+
+    .quick-card small{
+        font-size:11px;
+    }
+
+    .feature,
+    .hotel-card,
+    .location-card,
+    .contact-card{
+        padding:23px;
+    }
+
+    .number strong{
+        font-size:34px;
+    }
+
+    .hours-row{
+        flex-direction:column;
+        gap:3px;
+    }
+
+    .hours-row span:last-child{
+        text-align:left;
+    }
+}
+
+/* =========================
+   SCROLL REVEAL
+========================= */
+
+.reveal{
+    opacity:0;
+    transform:translateY(25px);
+    transition:opacity .7s ease, transform .7s ease;
+}
+
+.reveal.visible{
+    opacity:1;
+    transform:translateY(0);
+}
+</style>
+</head>
+
+<body>
+
+<header class="topbar">
+
+    <div class="container nav-main">
+
+        <a href="#start" class="logo">
+            HOTEL + RESTAURANT JÄGERHOF
+            <span>Mutterstadt</span>
+        </a>
+
+        <div class="nav-actions">
+
+            <a class="nav-button"
+               href="tel:+49623494500"
+               onclick="window.location.href='tel:+49623494500';">
+                📞 Anrufen
+            </a>
+
+            <a class="nav-button map"
+               href="https://www.google.com/maps/dir/?api=1&destination=An%20der%20Fohlenweide%2029%2C%2067112%20Mutterstadt"
+               target="_blank"
+               rel="noopener">
+                📍 Route
+            </a>
+
+        </div>
+
+    </div>
+
+    <nav class="category-bar">
+
+        <div class="categories">
+
+            <a href="#start">Start</a>
+            <a href="#restaurant">Restaurant</a>
+            <a href="#speisekarte">Speisekarte</a>
+            <a href="#oeffnungszeiten">Öffnungszeiten</a>
+            <a href="#hotel">Hotel</a>
+            <a href="#standort">Standort</a>
+            <a href="#kontakt">Kontakt</a>
+
+        </div>
+
+    </nav>
+
+</header>
+
+<main id="start">
+
+<section class="hero">
+
+    <div class="container">
+
+        <div class="hero-content">
+
+            <div class="badge">
+                <span class="badge-dot"></span>
+                Hotel + Restaurant in Mutterstadt
+            </div>
+
+            <h1>
+                Willkommen im
+                <span>Jägerhof.</span>
+            </h1>
+
+            <p>
+                Persönlicher Service, regionale und internationale Küche
+                und ein familiengeführtes Hotel direkt am Mutterstadter Wald.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a class="btn btn-primary" href="#speisekarte">
+                    🍽️ Speisekarte
+                </a>
+
+                <a class="btn btn-light" href="#kontakt">
+                    ✉️ Kontakt
+                </a>
+
+                <a class="btn btn-light"
+                   href="https://www.google.com/maps/dir/?api=1&destination=An%20der%20Fohlenweide%2029%2C%2067112%20Mutterstadt"
+                   target="_blank"
+                   rel="noopener">
+                    📍 Route planen
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="quick">
+
+    <div class="container">
+
+        <div class="quick-grid">
+
+            <div class="quick-card">
+                <div class="quick-icon">🍽️</div>
+                <strong>Restaurant</strong>
+                <small>Regionale & internationale Küche</small>
+            </div>
+
+            <div class="quick-card">
+                <div class="quick-icon">🛏️</div>
+                <strong>27 Zimmer</strong>
+                <small>Komfortable Übernachtungen</small>
+            </div>
+
+            <div class="quick-card">
+                <div class="quick-icon">🌳</div>
+                <strong>Am Wald</strong>
+                <small>Rad- und Wanderwege direkt am Hotel</small>
+            </div>
+
+            <div class="quick-card">
+                <div class="quick-icon">📶</div>
+                <strong>WLAN kostenlos</strong>
+                <small>Im gesamten Haus</small>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section id="restaurant" class="restaurant">
+
+    <div class="container">
+
+        <div class="section-title reveal">
+
+            <div class="eyebrow">Restaurant</div>
+
+            <h2>Frische Küche mit Tradition.</h2>
+
+            <p>
+                Im Jägerhof stehen regionale und internationale Gerichte
+                im Mittelpunkt. Die Küche wird von Küchenchef Wolf Werner
+                geführt.
+            </p>
+
+        </div>
+
+        <div class="features">
+
+            <div class="feature reveal">
+                <div class="feature-icon">🥘</div>
+                <h3>Regional & international</h3>
+                <p>
+                    Klassische Rezepte treffen auf moderne kulinarische
+                    Ideen sowie vegetarische und vegane Gerichte.
+                </p>
+            </div>
+
+            <div class="feature reveal">
+                <div class="feature-icon">🌱</div>
+                <h3>Frische Produkte</h3>
+                <p>
+                    Verwendet werden frische Produkte, wenn möglich
+                    von Bauern aus der Umgebung.
+                </p>
+            </div>
+
+            <div class="feature reveal">
+                <div class="feature-icon">🍷</div>
+                <h3>Pfälzer Genuss</h3>
+                <p>
+                    Weine aus der Mittelhaardt und Biere aus
+                    Pfälzer Brauereien ergänzen das Angebot.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section id="speisekarte" class="menu-section">
+
+    <div class="container">
+
+        <div class="section-title reveal">
+
+            <div class="eyebrow" style="color:#d5b66f;">
+                Speisekarte
+            </div>
+
+            <h2>Was Sie bei uns erwartet.</h2>
+
+            <p>
+                Das Angebot wird regelmäßig durch saisonale
+                Spezialitäten ergänzt.
+            </p>
+
+        </div>
+
+        <div class="menu-grid">
+
+            <div class="menu-card reveal">
+
+                <h3>🍽️ Regionale Küche</h3>
+
+                <p>
+                    Regionale Gerichte und Klassiker gehören zum
+                    kulinarischen Angebot des Jägerhofs.
+                </p>
+
+            </div>
+
+            <div class="menu-card reveal">
+
+                <h3>🌍 Internationale Küche</h3>
+
+                <p>
+                    Ergänzt wird die Küche durch internationale
+                    Gerichte und moderne Trends.
+                </p>
+
+            </div>
+
+            <div class="menu-card reveal">
+
+                <h3>🌿 Vegetarisch & vegan</h3>
+
+                <p>
+                    Auch vegetarische und vegane Gerichte werden
+                    angeboten.
+                </p>
+
+            </div>
+
+            <div class="menu-card reveal">
+
+                <h3>🍂 Saisonale Spezialitäten</h3>
+
+                <p>
+                    Die Speisekarte wird regelmäßig durch
+                    saisonale Spezialitätenkarten ergänzt.
+                </p>
+
+            </div>
+
+        </div>
+
+        <br>
+
+        <p style="color:#aeb8b1;font-size:13px;">
+            Hinweis: Die aktuellen Tages- und Saisonangebote können
+            sich ändern. Für die aktuelle Auswahl können Sie uns
+            telefonisch erreichen.
+        </p>
+
+    </div>
+
+</section>
+
+<section id="hotel">
+
+    <div class="container">
+
+        <div class="section-title reveal">
+
+            <div class="eyebrow">Hotel</div>
+
+            <h2>Übernachten im Jägerhof.</h2>
+
+            <p>
+                Das familiengeführte Hotel besteht bereits in der
+                dritten Generation und bietet 27 Zimmer.
+            </p>
+
+        </div>
+
+        <div class="hotel-grid">
+
+            <div class="hotel-card reveal">
+
+                <h3>Komfort & Service</h3>
+
+                <p>
+                    Für Geschäftsreisende, Familien und private
+                    Aufenthalte stehen komfortable Zimmer zur Verfügung.
+                    Zimmer für bis zu vier Personen sind vorhanden.
+                </p>
+
+                <div class="amenities">
+
+                    <div class="amenity">🛏️ 27 Zimmer</div>
+                    <div class="amenity">📶 Kostenloses WLAN</div>
+                    <div class="amenity">🚗 Parkmöglichkeiten</div>
+                    <div class="amenity">🏠 Eigene Garage</div>
+                    <div class="amenity">🍃 Garten / Park</div>
+                    <div class="amenity">🐕 Haustiere auf Anfrage</div>
+                    <div class="amenity">💼 Konferenzraum</div>
+                    <div class="amenity">🥗 Spezialkost möglich</div>
+
+                </div>
+
+            </div>
+
+            <div class="hotel-card reveal">
+
+                <h3>Direkt in der Natur</h3>
+
+                <p>
+                    Der Mutterstadter Wald liegt direkt am Hotel.
+                    Rad- und Wanderwege befinden sich in unmittelbarer
+                    Nähe.
+                </p>
+
+                <div class="amenities">
+
+                    <div class="amenity">🏊 Aquabella · 200 m</div>
+                    <div class="amenity">🛝 Waldspielplatz · 100 m</div>
+                    <div class="amenity">🚲 Radwege</div>
+                    <div class="amenity">🥾 Wanderwege</div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="numbers">
+
+    <div class="container">
+
+        <div class="number-grid">
+
+            <div class="number reveal">
+                <strong>27</strong>
+                <span>Zimmer</span>
+            </div>
+
+            <div class="number reveal">
+                <strong>110</strong>
+                <span>Restaurantplätze</span>
+            </div>
+
+            <div class="number reveal">
+                <strong>35</strong>
+                <span>Plätze auf der Gartenterrasse</span>
+            </div>
+
+            <div class="number reveal">
+                <strong>3.</strong>
+                <span>Generation</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section id="oeffnungszeiten" class="hours-section">
+
+    <div class="container">
+
+        <div class="section-title reveal">
+
+            <div class="eyebrow">Öffnungszeiten</div>
+
+            <h2>Wann wir für Sie da sind.</h2>
+
+        </div>
+
+        <div class="hours-box reveal">
+
+            <div class="hours-row">
+                <span>Montag</span>
+                <span>ab 17:00 Uhr</span>
+            </div>
+
+            <div class="hours-row">
+                <span>Dienstag</span>
+                <span>ab 17:00 Uhr</span>
+            </div>
+
+            <div class="hours-row">
+                <span>Mittwoch</span>
+                <span>ab 17:00 Uhr</span>
+            </div>
+
+            <div class="hours-row">
+                <span>Donnerstag</span>
+                <span>ab 17:00 Uhr</span>
+            </div>
+
+            <div class="hours-row">
+                <span>Freitag</span>
+                <span>Ruhetag</span>
+            </div>
+
+            <div class="hours-row">
+                <span>Samstag</span>
+                <span>ab 17:00 Uhr</span>
+            </div>
+
+            <div class="hours-row">
+                <span>Sonntag</span>
+                <span>11:30 – 14:30 Uhr</span>
+            </div>
+
+            <div class="hours-row">
+                <span>Feiertage</span>
+                <span>auf Anfrage</span>
+            </div>
+
+            <div class="hours-row">
+                <span>Letztes Wochenende des Monats</span>
+                <span>Ruhetage</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section id="standort" class="location">
+
+    <div class="container">
+
+        <div class="section-title reveal">
+
+            <div class="eyebrow">Standort</div>
+
+            <h2>Mitten in der Rhein-Neckar-Region.</h2>
+
+            <p>
+                Ruhig am Mutterstadter Wald gelegen und trotzdem
+                gut erreichbar.
+            </p>
+
+        </div>
+
+        <div class="location-grid">
+
+            <div class="location-card reveal">
+
+                <h3 style="margin-bottom:20px;">
+                    📍 Adresse
+                </h3>
+
+                <p>
+                    Hotel+Restaurant Jägerhof<br>
+                    An der Fohlenweide 29<br>
+                    67112 Mutterstadt<br>
+                    Deutschland
+                </p>
+
+                <br>
+
+                <a class="btn btn-primary"
+                   href="https://www.google.com/maps/dir/?api=1&destination=An%20der%20Fohlenweide%2029%2C%2067112%20Mutterstadt"
+                   target="_blank"
+                   rel="noopener">
+                    📍 Route planen
+                </a>
+
+            </div>
+
+            <div class="location-card reveal">
+
+                <h3 style="margin-bottom:15px;">
+                    🚗 Entfernungen
+                </h3>
+
+                <div class="distance">
+                    <span>Ludwigshafen</span>
+                    <strong>11 km</strong>
+                </div>
+
+                <div class="distance">
+                    <span>Mannheim</span>
+                    <strong>17 km</strong>
+                </div>
+
+                <div class="distance">
+                    <span>Speyer</span>
+                    <strong>19 km</strong>
+                </div>
+
+                <div class="distance">
+                    <span>Bad Dürkheim</span>
+                    <strong>20 km</strong>
+                </div>
+
+                <div class="distance">
+                    <span>Neustadt</span>
+                    <strong>24 km</strong>
+                </div>
+
+                <div class="distance">
+                    <span>Heidelberg</span>
+                    <strong>36 km</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section id="kontakt" class="contact">
+
+    <div class="container">
+
+        <div class="section-title reveal">
+
+            <div class="eyebrow" style="color:#d9bd79;">
+                Kontakt
+            </div>
+
+            <h2>Wir freuen uns auf Sie.</h2>
+
+            <p style="color:#d0d9d3;">
+                Fragen, Reservierungen oder weitere Informationen?
+                Kontaktieren Sie uns direkt.
+            </p>
+
+        </div>
+
+        <div class="contact-grid">
+
+            <div class="contact-card reveal">
+
+                <h3>📞 Direkt erreichen</h3>
+
+                <div class="contact-line">
+                    <span>📞</span>
+                    <span>+49 6234 94500</span>
+                </div>
+
+                <div class="contact-line">
+                    <span>✉️</span>
+                    <span>mail@hotel-jaegerhof.net</span>
+                </div>
+
+                <div class="contact-buttons">
+
+                    <a class="btn btn-primary"
+                       href="tel:+49623494500"
+                       onclick="window.location.href='tel:+49623494500'; return false;">
+                        📞 Jetzt anrufen
+                    </a>
+
+                    <a class="btn btn-light"
+                       href="mailto:mail@hotel-jaegerhof.net"
+                       onclick="window.location.href='mailto:mail@hotel-jaegerhof.net'; return false;">
+                        ✉️ E-Mail schreiben
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="contact-card reveal">
+
+                <h3>📍 Vorbeikommen</h3>
+
+                <p style="color:#d0d9d3;">
+                    An der Fohlenweide 29<br>
+                    67112 Mutterstadt
+                </p>
+
+                <div class="contact-buttons">
+
+                    <a class="btn btn-primary"
+                       href="https://www.google.com/maps/dir/?api=1&destination=An%20der%20Fohlenweide%2029%2C%2067112%20Mutterstadt"
+                       target="_blank"
+                       rel="noopener">
+                        📍 Route planen
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+<footer>
+
+    <strong>Hotel + Restaurant Jägerhof</strong><br>
+    An der Fohlenweide 29 · 67112 Mutterstadt<br><br>
+
+    Telefon:
+    <a href="tel:+49623494500">+49 6234 94500</a>
+    ·
+    E-Mail:
+    <a href="mailto:mail@hotel-jaegerhof.net">
+        mail@hotel-jaegerhof.net
+    </a>
+
+    <br><br>
+
+    © Hotel + Restaurant Jägerhof
+
+</footer>
+
+<script>
+
+const elements = document.querySelectorAll(".reveal");
+
+const observer = new IntersectionObserver(
+    entries => {
+
+        entries.forEach(entry => {
+
+            if(entry.isIntersecting){
+
+                entry.target.classList.add("visible");
+
+            }
+
+        });
+
+    },
+    {
+        threshold:0.08
+    }
+);
+
+elements.forEach(element => observer.observe(element));
+
+const categoryLinks =
+    document.querySelectorAll(".categories a");
+
+categoryLinks.forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        const bar = document.querySelector(".category-bar");
+
+        const linkLeft =
+            link.offsetLeft -
+            (bar.clientWidth / 2) +
+            (link.clientWidth / 2);
+
+        bar.scrollTo({
+            left:linkLeft,
+            behavior:"smooth"
+        });
+
+    });
+
+});
+
+</script>
+
+</body>
+</html>
+```
